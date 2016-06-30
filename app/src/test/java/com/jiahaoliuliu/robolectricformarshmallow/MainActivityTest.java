@@ -1,0 +1,39 @@
+package com.jiahaoliuliu.robolectricformarshmallow;
+
+import android.os.Build;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.Robolectric;
+import org.robolectric.RobolectricTestRunner;
+import org.robolectric.annotation.Config;
+
+import static org.junit.Assert.*;
+
+/**
+ * Created by Jiahao on 6/30/16.
+ */
+@RunWith(RobolectricTestRunner.class)
+@Config(constants = BuildConfig.class, manifest = Config.NONE
+)
+public class MainActivityTest {
+
+    private MainActivity mMainActivity;
+
+    @Before
+    public void setUp() throws Exception {
+        mMainActivity = Robolectric.setupActivity(MainActivity.class);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+
+    }
+
+    @Test
+    public void testOnCreate() throws Exception {
+        // Simple test to know that it works
+        assertTrue(true);
+    }
+}
