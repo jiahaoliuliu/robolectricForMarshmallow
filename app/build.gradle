@@ -29,4 +29,6 @@ dependencies {
   testCompile 'org.robolectric:robolectric:3.1'
   testCompile 'org.mockito:mockito-core:1.9.5'
 
+  // This solve the problem of OpenGles GL for Robolectric 3.1 for API 23
+  testCompile 'org.khronos:opengl-api:gl1.1-android-2.1_r1'
 }

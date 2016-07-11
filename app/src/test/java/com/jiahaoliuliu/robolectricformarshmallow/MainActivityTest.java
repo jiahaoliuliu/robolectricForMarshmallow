@@ -14,8 +14,7 @@ import static org.junit.Assert.*;
  * Created by Jiahao on 6/30/16.
  */
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class, manifest = Config.NONE
-)
+@Config(constants = BuildConfig.class, manifest = Config.NONE)
 public class MainActivityTest {
 
     private MainActivity mMainActivity;
