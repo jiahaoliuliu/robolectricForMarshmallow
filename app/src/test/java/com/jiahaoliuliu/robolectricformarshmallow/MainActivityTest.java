@@ -1,5 +1,6 @@
 package com.jiahaoliuliu.robolectricformarshmallow;
 
+import com.jiahaoliuliu.robolectricformarshmallow.shadow.BaseActivityShadow;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,8 +14,9 @@ import static org.junit.Assert.*;
 /**
  * Created by Jiahao on 6/30/16.
  */
-@RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class, manifest = Config.NONE, application = FoolApplication.class)
+@RunWith(CustomizedGradleTestRunner.class)
+@Config(constants = BuildConfig.class, manifest = Config.NONE, application = FoolApplication.class,
+    shadows = { BaseActivityShadow.class}, sdk = 18)
 public class MainActivityTest {
 
     private MainActivity mMainActivity;
