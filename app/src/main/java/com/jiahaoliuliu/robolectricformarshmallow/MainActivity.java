@@ -1,6 +1,7 @@
 package com.jiahaoliuliu.robolectricformarshmallow;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -23,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         mSimpleTextView = (TextView) findViewById(R.id.simple_text_view);
         setTextByGenericContext();
 
-        // Check for read phone state permission
         // Check the read phone state permission
         if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_PHONE_STATE)
                     == PackageManager.PERMISSION_GRANTED) {
@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(MainActivity.this, new String[] {Manifest.permission.READ_PHONE_STATE},
                 REQUEST_CODE_ASK_PERMISSION_READ_PHONE_STATE);
         }
-
     }
 
     /**
