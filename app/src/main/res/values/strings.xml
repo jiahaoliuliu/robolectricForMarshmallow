@@ -1,3 +1,5 @@
 <resources>
   <string name="app_name">Robolectric For MarshMallow</string>
+  <string name="permission_granted">Read phone state permission guaranteed</string>
+  <string name="permission_denied">Read phone state permission denied</string>
 </resources>
