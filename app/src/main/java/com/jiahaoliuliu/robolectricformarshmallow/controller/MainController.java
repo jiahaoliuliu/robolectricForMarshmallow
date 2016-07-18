@@ -10,12 +10,17 @@ public class MainController {
 
     private Context mContext;
 
+    private static MainController mainController;
+
     public MainController(Context context) {
         this.mContext = context;
     }
 
     public static synchronized MainController getMainController(Context context) {
-        return new MainController(context);
+        if (mainController == null) {
+            mainController = new MainController(context);
+        }
+        return mainController;
     }
 
     public String getTextToDisplay(boolean permissionGranted) {
