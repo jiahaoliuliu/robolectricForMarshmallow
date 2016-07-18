@@ -14,6 +14,10 @@ public class MainController {
         this.mContext = context;
     }
 
+    public static synchronized MainController getMainController(Context context) {
+        return new MainController(context);
+    }
+
     public String getTextToDisplay(boolean permissionGranted) {
         if (permissionGranted) {
             return mContext.getResources().getString(R.string.permission_granted);

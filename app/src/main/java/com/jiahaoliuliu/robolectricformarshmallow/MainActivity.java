@@ -23,7 +23,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         // Set the internal variables
-        mMainController = new MainController(this);
+        mMainController = MainController.getMainController(this);
 
         // Link the views
         mSimpleTextView = (TextView) findViewById(R.id.simple_text_view);
