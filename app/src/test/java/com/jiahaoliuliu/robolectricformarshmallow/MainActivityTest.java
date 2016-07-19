@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
  */
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class, manifest = Config.NONE, application = FoolApplication.class,
-    shadows = { MainControllerShadow.class}, sdk = 18)
+    shadows = { MainControllerShadow.class})
 public class MainActivityTest {
 
     private MainActivity mMainActivity;
