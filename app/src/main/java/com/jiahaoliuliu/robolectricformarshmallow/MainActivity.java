@@ -7,15 +7,22 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.os.Bundle;
 import android.widget.TextView;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.jiahaoliuliu.robolectricformarshmallow.controller.MainController;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements OnMapReadyCallback{
 
     private static final int REQUEST_CODE_ASK_PERMISSION_READ_PHONE_STATE = 1000;
 
+    // Views
     private TextView mSimpleTextView;
+    private SupportMapFragment mSupportMapFragment;
 
+    // Internal variables
     private MainController mMainController;
+    private GoogleMap mGoogleMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +35,9 @@ public class MainActivity extends BaseActivity {
         // Link the views
         mSimpleTextView = (TextView) findViewById(R.id.simple_text_view);
         setTextByGenericContext();
+
+        mSupportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mSupportMapFragment.getMapAsync(this);
 
         // Check the read phone state permission
         if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.READ_PHONE_STATE)
@@ -63,5 +73,14 @@ public class MainActivity extends BaseActivity {
                 super.onRequestPermissionsResult(requestCode, permissions, grantResults);
                 break;
         }
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        // The map is ready
+        this.mGoogleMap = googleMap;
+
+        // Set the map as hybrid
+        mGoogleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
     }
 }
