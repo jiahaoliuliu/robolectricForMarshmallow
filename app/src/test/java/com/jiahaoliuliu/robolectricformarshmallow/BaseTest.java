@@ -10,7 +10,8 @@ import org.robolectric.annotation.Config;
  * Created by jiahao on 19/09/16.
  */
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class, manifest = Config.NONE, application = FoolApplication.class,
-        shadows = {MainControllerShadow.class})
+@Config(constants = BuildConfig.class, manifest = Config.NONE, application = FoolApplication.class
+        , shadows = {MainControllerShadow.class}
+        )
 public class BaseTest {
 }

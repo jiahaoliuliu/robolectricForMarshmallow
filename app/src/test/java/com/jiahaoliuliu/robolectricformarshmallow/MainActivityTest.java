@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 /**
  * Created by Jiahao on 6/30/16.
  */
-@Config(shadows = {SettingsShadow.class, MainControllerShadow.class})
+@Config(shadows = {SettingsShadow.class})
 public class MainActivityTest extends BaseTest{
     private MainActivity mMainActivity;
 

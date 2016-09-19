@@ -5,7 +5,7 @@ package com.jiahaoliuliu.robolectricformarshmallow.model;
  */
 public class Settings {
 
-    private boolean isDebugging = true;
+    private boolean isDebugging = false;
 
     public boolean isDebugging() {
         return isDebugging;
