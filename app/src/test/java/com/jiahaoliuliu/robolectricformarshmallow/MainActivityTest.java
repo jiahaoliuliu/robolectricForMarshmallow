@@ -1,12 +1,12 @@
 package com.jiahaoliuliu.robolectricformarshmallow;
 
 import com.jiahaoliuliu.robolectricformarshmallow.shadow.MainControllerShadow;
+import com.jiahaoliuliu.robolectricformarshmallow.shadow.SettingsShadow;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
-import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.*;
@@ -14,11 +14,8 @@ import static org.junit.Assert.*;
 /**
  * Created by Jiahao on 6/30/16.
  */
-@RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class, manifest = Config.NONE, application = FoolApplication.class,
-    shadows = { MainControllerShadow.class})
-public class MainActivityTest {
-
+@Config(shadows = {SettingsShadow.class, MainControllerShadow.class})
+public class MainActivityTest extends BaseTest{
     private MainActivity mMainActivity;
 
     @Before
@@ -35,5 +32,9 @@ public class MainActivityTest {
     public void testOnCreate() throws Exception {
         // Simple test to know that it works
         assertTrue(true);
+
+        // The debug is always set in the shadows
+        String actionBarTitle = mMainActivity.getSupportActionBar().getTitle().toString();
+        assertEquals(actionBarTitle, mMainActivity.getResources().getString(R.string.app_name_debugging));
     }
 }

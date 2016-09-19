@@ -1,6 +1,8 @@
 package com.jiahaoliuliu.robolectricformarshmallow.shadow;
 
 import android.content.Context;
+
+import com.jiahaoliuliu.robolectricformarshmallow.R;
 import com.jiahaoliuliu.robolectricformarshmallow.controller.MainController;
 import org.robolectric.annotation.Implementation;
 import org.robolectric.annotation.Implements;
@@ -18,5 +20,10 @@ public class MainControllerShadow {
     @Implementation
     public String getTextToDisplay(boolean permissionGranted) {
         return "Test";
+    }
+
+    @Implementation
+    public String getWaitingPermissionText() {
+        return "Waiting";
     }
 }

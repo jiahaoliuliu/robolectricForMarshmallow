@@ -4,4 +4,5 @@
   <string name="permission_denied">Read phone state permission denied</string>
 
   <string name="app_name_debugging">(D)Robolectric For MarshMallow</string>
+    <string name="waiting_for_permission">Waiting for permission</string>
 </resources>

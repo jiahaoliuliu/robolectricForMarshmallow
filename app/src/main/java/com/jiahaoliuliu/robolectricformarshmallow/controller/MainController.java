@@ -30,4 +30,8 @@ public class MainController {
             return mContext.getResources().getString(R.string.permission_denied);
         }
     }
+
+    public String getWaitingPermissionText() {
+        return mContext.getResources().getString(R.string.waiting_for_permission);
+    }
 }

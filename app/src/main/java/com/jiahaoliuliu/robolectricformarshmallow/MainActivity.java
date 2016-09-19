@@ -33,6 +33,8 @@ public class MainActivity extends BaseActivity {
         mSimpleTextView = (TextView) findViewById(R.id.simple_text_view);
         setTitleByGenericContext();
 
+        mSimpleTextView.setText(mMainController.getWaitingPermissionText());
+
         // Check the read phone state permission
         if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.READ_PHONE_STATE)
                     == PackageManager.PERMISSION_GRANTED) {
