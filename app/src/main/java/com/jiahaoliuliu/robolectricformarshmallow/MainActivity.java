@@ -8,6 +8,7 @@ import android.support.v4.content.ContextCompat;
 import android.os.Bundle;
 import android.widget.TextView;
 import com.jiahaoliuliu.robolectricformarshmallow.controller.MainController;
+import com.jiahaoliuliu.robolectricformarshmallow.model.Settings;
 
 public class MainActivity extends BaseActivity {
 
@@ -17,6 +18,8 @@ public class MainActivity extends BaseActivity {
 
     private MainController mMainController;
 
+    private Settings mSettings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,10 +27,11 @@ public class MainActivity extends BaseActivity {
 
         // Set the internal variables
         mMainController = MainController.getMainController(this);
+        mSettings = new Settings();
 
         // Link the views
         mSimpleTextView = (TextView) findViewById(R.id.simple_text_view);
-        setTextByGenericContext();
+        setTitleByGenericContext();
 
         // Check the read phone state permission
         if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.READ_PHONE_STATE)
@@ -42,8 +46,12 @@ public class MainActivity extends BaseActivity {
     /**
      * Method create to test the generic context by extending the Application class
      */
-    private void setTextByGenericContext() {
-        mSimpleTextView.setText(MainApplication.getContext().getText(R.string.app_name));
+    private void setTitleByGenericContext() {
+        if (!mSettings.isDebugging()) {
+            getSupportActionBar().setTitle(MainApplication.getContext().getText(R.string.app_name));
+        } else {
+            getSupportActionBar().setTitle(MainApplication.getContext().getText(R.string.app_name_debugging));
+        }
     }
 
     @Override
