@@ -14,17 +14,22 @@ import static org.junit.Assert.*;
  * Created by Jiahao on 6/30/16.
  */
 @Config(shadows = {SettingsShadow.class})
-public class MainActivityTest extends BaseTest{
+public class MainActivityTest extends BaseTest<MainActivity>{
     private MainActivity mMainActivity;
+
+    public MainActivityTest() {
+        super(MainActivity.class);
+    }
 
     @Before
     public void setUp() throws Exception {
-        mMainActivity = Robolectric.setupActivity(MainActivity.class);
+        // Getting the activity.
+        mMainActivity = getActivity();
     }
 
     @After
     public void tearDown() throws Exception {
-
+        super.tearDown();
     }
 
     @Test
