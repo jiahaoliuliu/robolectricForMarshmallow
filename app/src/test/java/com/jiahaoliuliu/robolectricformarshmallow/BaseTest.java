@@ -31,9 +31,11 @@ public class BaseTest <T extends Activity>{
      * Get the activity. This method is not set inside the constructor but outside
      * allow the tests control better when the activities will be set.
      * @return
+     *      The activity already visible
      */
     protected T getActivity() {
-        this.mActivityController = Robolectric.buildActivity(mClazz).setup();
+        this.mActivityController =
+                Robolectric.buildActivity(mClazz).create().start().postCreate(null).resume().visible();
         return mActivityController.get();
     }
 
