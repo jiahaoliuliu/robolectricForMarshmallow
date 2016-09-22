@@ -1,6 +1,5 @@
 package com.jiahaoliuliu.robolectricformarshmallow;
 
-import com.jiahaoliuliu.robolectricformarshmallow.shadow.MainControllerShadow;
 import com.jiahaoliuliu.robolectricformarshmallow.shadow.SettingsShadow;
 
 import org.junit.After;
